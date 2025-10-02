@@ -127,11 +127,11 @@ void CPlayer::move() {
   glm::vec2 potentialVelocity = m_Velocity;
   
   if (m_Window->IsKeyPressed(GLFW_KEY_D)) {
-    potentialVelocity.x += m_flAcceleration * m_flDeltaTime;
+    potentialVelocity.x += m_flAcceleration;
     bHasHorizontalInput = true;
   };
   if (m_Window->IsKeyPressed(GLFW_KEY_A)) {
-    potentialVelocity.x -= m_flAcceleration * m_flDeltaTime;
+    potentialVelocity.x -= m_flAcceleration;
     bHasHorizontalInput = true;
   };
   if(!bHasHorizontalInput) {

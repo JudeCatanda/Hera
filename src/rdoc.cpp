@@ -14,3 +14,8 @@ void get_render_doc(RENDERDOC_API_1_5_0* rdoc_api) {
     LOG_ERROR("Unable to get the function GetAPI!");
   GetAPI(eRENDERDOC_API_Version_1_5_0, (void **)&rdoc_api);
 };
+
+void Throw_Error(GLFWwindow* window, const char* szErrorMessage) {
+    if(MessageBoxA(glfwGetWin32Window(window), szErrorMessage, NULL, MB_OK | MB_ICONERROR) == IDOK)
+        exit(-1);//no choice
+};

@@ -1,19 +1,20 @@
 #include "Window.hpp"
+#include "rdoc.hpp"
 
 void CWindow::Create(const char* szTitle, int nWidth, int nHeight) {
   if(!glfwInit())
-    std::fprintf(stderr, "cannot initialize glfw\n");
+      Throw_Error(m_Handle, "Cannot initialize GLFW");
 
   m_Handle = glfwCreateWindow(nHeight, nWidth, szTitle, nullptr, nullptr);
   m_Size = glm::ivec2(nWidth, nHeight);
 
   if(m_Handle == nullptr)
-    std::fprintf(stderr, "cannot create window\n");
+   Throw_Error(m_Handle, "Cannot Create Window!");
 
   glfwMakeContextCurrent(m_Handle);
 
   if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    std::fprintf(stderr, "cannot use opengl!\n");
+      Throw_Error(m_Handle, "Failed to communicate with your drivers");
 
   m_KeyboardState.Init();
 };
