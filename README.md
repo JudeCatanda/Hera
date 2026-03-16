@@ -1,5 +1,6 @@
 <h1 align="center">Project: Hera</h1>
 
+Project Percentage: **0.5%**
 Current State: **Fucked on fullscreen and it uses the 50% the cpu**
 <br>
 Todo's:
